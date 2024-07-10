@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Login</title>
+    <link rel="stylesheet" href="{{url_for('static', filename = 'telo.css')}}">
+</head>
+<body>
+
+<!-- Navigation Bar -->
+<nav class="navbar">
+    <div class="logo-container">
+        <img src="{{ url_for('static', filename='images/logo.jpg') }}" alt="College Logo" class="logo">
+        <span class="college-name">College Name</span>
+    </div>
+    <div class="nav-links">
+        <!-- <img src="/frontend/images/home.png" alt="College Logo" class="logo-slide"> -->
+        <a href="{{url_for('index')}}" style="text-align: center; padding-bottom: 2px;">Home</a>
+        <!-- <a href="#teacher-login">Teacher Login</a> -->
+    </div>
+</nav>    
+
+<div class="container">
+    <form id="loginForm" action="{{ url_for('login') }}" method="post">
+        <h2>Professor Login</h2>
+        <label for="username">User_Name:</label>
+        <input type="text" id="username" name="username" required>
+    
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+    
+        <button type="button" onclick="submitForm()">Login</button>
+    </form>
+</div>
+
+
+{% if error %}
+<script>
+    // Display a pop-up alert for invalid username or password
+    alert("{{ error }}");
+</script>
+{% endif %}
+
+<script src="{{url_for('static', filename = 'telo.js')}}"></script>
+</body>
+</html>

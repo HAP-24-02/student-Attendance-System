@@ -1,0 +1,40 @@
+.section.lecture-attendance {
+    /* CSS styles specific to the Lecture Attendance section */
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.section.lecture-attendance h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333333;
+}
+
+.section.lecture-attendance table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.section.lecture-attendance th, .section.lecture-attendance td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #dddddd;
+}
+
+.section.lecture-attendance th {
+    background-color: #f2f2f2;
+}
+
+.section.lecture-attendance .attendance-status {
+    font-weight: bold;
+    color: green;
+}
+
+.section.lecture-attendance .absent {
+    color: red;
+}

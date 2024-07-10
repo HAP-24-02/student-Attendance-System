@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='success.css') }}">
+    <style>
+        .header-cell {
+            width: auto;
+            white-space: nowrap; /* Prevent line breaks in header cells */
+        }
+    </style>
+    <title>Success_attendance_details</title>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header">
+            <h1>Lecture Details</h1>
+        </div>
+        <div class="section">
+            <div class="form-details">
+                <p><strong>Lecture ID:</strong> {{ form_details.lec_id }}</p>
+                <p><strong>Teacher ID:</strong> {{ form_details.teacher_id }}</p>
+                <p><strong>Date:</strong> {{ form_details.lecture_date }}</p>
+                <p><strong>Subject:</strong> {{ form_details.subject }}</p>
+                <p><strong>Start Time:</strong> {{ form_details.start_time }}</p>
+                <p><strong>Year:</strong> {{ form_details.year }}</p>
+                <p><strong>Branch:</strong> {{ form_details.branch }}</p> 
+                <p><strong>Duration:</strong> {{ form_details.duration }}</p>
+                <p><strong>Hall Number:</strong> {{ form_details.hall_number }}</p>  
+                <p><strong>DIVISION:</strong> {{ form_details.division }}</p>
+            </div>
+        </div>
+        <div class="header">
+            <h1>Student Attendance Details</h1>
+        </div>
+        <div class="section">
+            <table>
+                <thead>
+                    <tr>
+                        <th class="header-cell">Index</th>
+                        <th class="header-cell">Roll No</th>
+                        <th class="header-cell">Name</th>
+                        <th class="header-cell">Email</th>
+                        <th class="header-cell">Timestamp</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for row in attendance_details %}
+                    <tr>
+                        {% for detail in row %}
+                        <td>{{ detail }}</td>
+                        {% endfor %}
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+
+        <a href="{{ url_for('teho') }}" class="button">Go to Teho</a>
+    </div>
+</body>
+</html>

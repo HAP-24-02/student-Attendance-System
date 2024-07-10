@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Submission</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        h1 {
+            color: #007bff;
+            text-align: center;
+        }
+        .section {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            padding: 20px;
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .qr-code {
+            display: block;
+            margin: 20px auto;
+            max-width: 300px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .btn {
+            display: block;
+            margin: 0 auto;
+            padding: 12px 24px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-transform: uppercase;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+        .btn-container {
+            text-align: center;
+            margin-top: 30px;
+        }
+        .btn-container button {
+            margin-top: 10px;
+        }
+        .url-box {
+            background-color: #f0f0f0;
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to My World</h1>
+        
+        <div class="section">
+            <h2 class="section-title">Edit File first</h2>
+            <div class="btn-container">
+                <a href="{{ form_url }}" class="btn" target="_blank">Go to URL</a>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Your Responder URL:</h2>
+            <div class="btn-container">
+                <a href="{{ responder_url }}" class="btn" target="_blank">Go to URL</a>
+            </div>
+        </div>
+        
+        
+        <div class="section">
+            <h2 class="section-title">Scan the QR Code:</h2>
+            <img src="{{ qr_code_url }}" alt="QR Code" class="qr-code">
+        </div>
+
+        <div class="btn-container">
+            <form method="post" action="/spreadsheet_DB">
+                <button type="submit" class="btn">Store in Database</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

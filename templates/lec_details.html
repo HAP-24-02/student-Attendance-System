@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='lec_details.css') }}">
+    <title>Lecture Details</title>
+
+</head>
+<body>
+    <div class="container">
+        <h1>Lecture Details</h1>
+        
+        <!-- Conditional message box -->
+        {% if today ==  lecture_details.lecture_date  %}
+        <div class="message-box green">
+            <p>Lecture is today and you can generate QR code.</p>
+        </div>
+        {% elif today <  lecture_details.lecture_date  %}
+        <div class="message-box orange">
+            <p>Lecture is {{ days_until_lecture }} days away from today. Are you sure you want to generate QR code?</p>
+        </div>
+        {% else %}
+        <div class="message-box red">
+            <p>You can't generate QR code for past lectures. Please return.</p>
+        </div>
+        {% endif %}
+        
+        <!-- Lecture details section -->
+        <div class="lecture-details">
+            <p><strong>Lecture ID:</strong> {{ lecture_details.lec_id }}</p>
+            <p><strong>Teacher ID:</strong> {{ lecture_details.teacher_id }}</p>
+            <p><strong>Date:</strong> {{ lecture_details.lecture_date }}</p>
+            <p><strong>Subject:</strong> {{ lecture_details.subject }}</p>
+            <p><strong>Start Time:</strong> {{ lecture_details.start_time }}</p>
+            <p><strong>Year:</strong> {{ lecture_details.year }}</p>
+            <p><strong>Branch:</strong> {{ lecture_details.branch }}</p> 
+            <p><strong>Duration:</strong> {{ lecture_details.duration }}</p>
+            <p><strong>Hall Number:</strong> {{ lecture_details.hall_number }}</p>  
+            <p><strong>Division:</strong> {{ lecture_details.division }}</p>  
+        </div>
+
+        <!-- Form actions section -->
+        {% if today <=  lecture_details.lecture_date  %}
+        <div class="form-actions">
+            <form action="{{ url_for('submit_form', lecture_id=lecture_details.lec_id, teacher_id=lecture_details.teacher_id, lecture_date=lecture_details.lecture_date, subject=lecture_details.subject, start_time=lecture_details.start_time, year=lecture_details.year, branch=lecture_details.branch, duration=lecture_details.duration, hall_number=lecture_details.hall_number, division=lecture_details.division) }}" method="post">
+                <button class="button" type="submit">Generate QR Code</button>
+            </form>
+        </div>
+        {% endif %}
+
+        <!-- Return button -->
+        <div class="form-actions">
+            <form action="{{ url_for('return_to_previous_page') }}" method="post">
+                <input type="hidden" name="previous_url" value="{{ request.referrer }}">
+                <button class="button" type="submit">Return</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

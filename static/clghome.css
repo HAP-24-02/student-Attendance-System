@@ -1,0 +1,289 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #f2f2f2;
+}
+
+/* Navigation Bar Styles */
+.navbar {
+    background-color: #333;
+    color: #ffffff;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+
+
+.college-name {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* Navigation Links Styles */
+.nav-links a {
+    color: #ffffff;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+}
+
+/* Main Content Styles */
+.main-content {
+    padding: 20px;
+}
+
+/* Hero Section Styles */
+.hero {
+    position: relative;
+    text-align: center;
+    color: #ffffff;
+}
+
+.mySlides {
+    display: none;
+}
+
+.hero-image {
+    width: 100%;
+    height: auto;
+}
+
+.hero-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.hero h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+}
+
+.slideshow-container {
+    max-width: 1000px;
+    position: relative;
+    margin: auto;
+}
+
+.mySlides img {
+    width: 100%;
+    height: auto;
+}
+
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 20px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+}
+
+.prev {
+    left: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+
+
+/* Notice Section Styles */
+#latest-notice {
+    background-color: #97c55b;
+    padding: 40px 0;
+    margin-top: 15px;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.notice {
+    text-align: center;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.notice-box {
+    max-height: 400px; /* Set the maximum height as per your preference */
+    overflow-y: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.notice-item {
+    width: 100%;
+    margin: 20px;
+    padding: 20px;
+    background-color: #d55454;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+.notice-logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.notice-text {
+    list-style: none;
+    padding-left: 0;
+    background: url('bullet.png') no-repeat left center;
+    background-size: 40px 40px; /* Adjust the size as needed */
+    padding-left: 40px;
+    line-height: 1.5;
+}
+
+
+/* Achievements Section Styles */
+#achievements {
+    max-height: fit-content;
+    background: #3498db; /* Background color */
+    color: #fff;
+    padding: 40px 0;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.achievements {
+    text-align: center;
+}
+
+.achievements h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.slideshow-container {
+    position: relative;
+    max-width: 100%;
+    margin: auto;
+}
+
+.slide {
+    display: none;
+    text-align: center;
+}
+
+img {
+    width: 100%;
+    height: 500px;
+}
+
+.description {
+    font-size: 1.5em;
+    margin-top: 10px;
+}
+
+
+/* Founder Section Styles */
+#founder {
+    background: #8178e2; /* Background color for the founder section */
+    padding: 40px 0;
+    margin-top: 15px;
+}
+
+.founder {
+    text-align: center;
+}
+
+.founder h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.founder-info {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.founder-image {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+.description {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+.vision {
+    font-style: italic;
+}
+
+
+
+/* About College Section Styles */
+#about-college {
+    background: #bd4848; /* Change background color for the about college section */
+    padding: 40px 0;
+    margin-top: 15px;
+}
+
+.about-college {
+    text-align: center;
+}
+
+.about-college h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.about-college .description {
+    max-width: 600px;
+    margin: 0 auto 20px;
+    font-size: 1.5em;
+}
+
+.college-details {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.college-details p {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}

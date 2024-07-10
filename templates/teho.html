@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Dashboard</title>
+    <link rel="stylesheet" href="{{url_for('static' ,filename= 'TeacherHome.css' )}}">
+</head>
+<body>
+
+<!-- Navigation Bar -->
+<nav class="navbar">
+    <div class="logo-container">
+        <img src="{{ url_for('static', filename='images/logo.jpg') }}" alt="College Logo" class="logo">
+        <span class="college-name">College Name</span>
+    </div>
+    <div class="nav-links">
+        <a href="{{url_for('index')}}">Home</a>
+        <a href="{{url_for('add_lecture')}}">Add Lecture </a>
+        <a href="{{url_for('past_details')}}">Attendance Details </a>
+    </div>
+</nav>
+
+<!-- Main Content -->
+<div class="main-content">
+
+    <section id="personalDetails">
+        <div class="container">
+            <h2 class="section-title">Personal Details</h2>
+            <div class="personal-details">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="detail-item">
+                            <span class="detail-label">Name:</span>
+                            <span class="detail-value">{{ teacher_details.name }}</span>
+                        </div>
+    
+                        <div class="detail-item">
+                            <span class="detail-label">Teacher_Id:</span>
+                            <span class="detail-value">{{ teacher_details.id }}</span>
+                        </div>
+                    </div>
+    
+                    <div class="col-md-6">
+                        <div class="detail-item">
+                            <span class="detail-label">Contact Number:</span>
+                            <span class="detail-value">{{ teacher_details.contact }}</span>
+                        </div>
+    
+                        <div class="detail-item">
+                            <span class="detail-label">Email:</span>
+                            <span class="detail-value">{{ teacher_details.email }}</span>
+                        </div>
+    
+                        <div class="detail-item">
+                            <span class="detail-label">Subjects:</span>
+                            <span class="detail-value">{{ teacher_details.subject }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+
+    <section id="upcoming-lectures" class="lecture-section">
+        <div class="container">
+            <h2>Upcoming Lectures</h2>
+            <div class="lecture-info">
+                <form id="lectureForm" method="POST" action="/store_lecture_details">
+                    <label for="selectLecture">Select Lecture:</label>
+                    <select id="selectLecture" name="lec_id"> <!-- Add name attribute for form submission -->
+                        {% for lecture in upcoming_lectures %}
+                            <option value="{{ lecture.lec_id }}">{{ 'Lecture ' + loop.index|string }} - {{ lecture.lecture_date }} - {{ lecture.subject }} - {{ lecture.start_time }}</option>
+                        {% endfor %}
+                    </select>
+                    <button type="submit">Generate QR Code</button> 
+                </form>
+            </div>
+        </div>
+    </section>    
+    
+<!-- Past Lectures Section -->
+<section id="past-lectures" class="lecture-section">
+    <div class="container">
+        <h2>Past Lectures</h2>
+        <div class="lecture-list-container">
+            {% if past_lecture %}
+                {% for lecture in past_lecture %}
+                    <div class="lecture-list">
+                        <div class="lecture-item">
+                            <span class="lecture-title">Lecture Subject: {{ lecture.subject }}</span>
+                            <span class="lecture-date">Date: {{ lecture.lecture_date }}</span>
+                            <span class="lecture-details">Year: {{ lecture.year }}, Branch: {{ lecture.branch }}</span>
+                            <!-- Add more details as needed -->
+                        </div>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p>No past lectures found.</p>
+            {% endif %}
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+</div>
+
+<script src="{{url_for('static', filename= 'Teacher.js')}}"></script>
+<script>
+    function fetchAttendance(lectureId) {
+        var attendanceContainer = document.getElementById(lectureId + "-attendance");
+        fetch(`/get_attendance?lecture_id=${lectureId}`)
+            .then(response => response.json())
+            .then(data => {
+                attendanceContainer.innerHTML = data.attendance_html;
+                attendanceContainer.style.display = "block";
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+    }
+</script>
+
+</body>
+</html>

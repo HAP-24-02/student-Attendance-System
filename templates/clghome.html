@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='clghome.css') }}">
+    <title>College Website</title>
+</head>
+<body>
+
+<!-- Navigation Bar -->
+<nav class="navbar">
+    <div class="logo-container">
+        <img src="{{ url_for('static', filename='images/logo.jpg') }}" alt="College Logo" class="logo">
+        <span class="college-name">College Name</span>
+    </div>
+    <div class="nav-links">
+        <a href="{{ url_for('login_student') }}">ERP Login</a>
+
+        <a href="{{ url_for('login') }}">Teacher Login</a>
+    </div>
+</nav>
+
+<!-- Main Content -->
+<div class="main-content">
+
+    
+    <!-- Hero Section -->
+    <div class="hero">
+        <div class="slideshow-container">
+            <div class="mySlides fade">
+                <img src="{{ url_for('static', filename='images/clgcampus.jpg') }}" alt="College Campus">
+            </div>
+
+            <div class="mySlides fade">
+                <img src="{{ url_for('static', filename='images/clgcam-2.jpg') }}" alt="College Campus">
+            </div>
+
+            <div class="mySlides fade">
+                <img src="{{ url_for('static', filename='images/cg-4.jpg') }}" alt="College Campus">
+            </div>
+
+            <!-- Navigation Buttons -->
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+
+        <div class="hero-text">
+            <h1>Welcome to College Name</h1>
+            <p>Shaping futures, Inspiring minds.</p>
+        </div>
+    </div>
+
+    <!-- Latest Notice Section -->
+    <section id="latest-notice" class="notice">
+        <div class="container">
+            <h2 class="text-center">Latest Notice</h2>
+
+            <div class="notice-box">
+                <!-- Notice 1 -->
+                <div class="notice-item">
+                    <img src="{{ url_for('static', filename='images/notice.jpg') }}" alt="Notice Logo" class="notice-logo">
+                    <p class="notice-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+
+                <!-- Notice 2 -->
+                <div class="notice-item">
+                    <img src="{{ url_for('static', filename='images/notice.jpg') }}" alt="Notice Logo" class="notice-logo">
+                    <p class="notice-text">Sed sit amet odio et turpis pellentesque commodo.</p>
+                </div>
+                
+                <div class="notice-item">
+                    <img src="{{ url_for('static', filename='images/notice.jpg') }}" alt="Notice Logo" class="notice-logo">
+                    <p class="notice-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+
+                <div class="notice-item">
+                    <img src="{{ url_for('static', filename='images/notice.jpg') }}" alt="Notice Logo" class="notice-logo">
+                    <p class="notice-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+
+                <div class="notice-item">
+                    <img src="{{ url_for('static', filename='images/notice.jpg') }}" alt="Notice Logo" class="notice-logo">
+                    <p class="notice-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+
+                <div class="notice-item">
+                    <img src="{{ url_for('static', filename='images/notice.jpg') }}" alt="Notice Logo" class="notice-logo">
+                    <p class="notice-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+
+                <div class="notice-item">
+                    <img src="{{ url_for('static', filename='images/notice.jpg') }}" alt="Notice Logo" class="notice-logo">
+                    <p class="notice-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+
+                <div class="notice-item">
+                    <img src="{{ url_for('static', filename='images/notice.jpg') }}" alt="Notice Logo" class="notice-logo">
+                    <p class="notice-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+
+                <div class="notice-item">
+                    <img src="{{ url_for('static', filename='images/notice.jpg') }}" alt="Notice Logo" class="notice-logo">
+                    <p class="notice-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+                <!-- ... Repeat for 8 more notices ... -->
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section with Slideshow -->
+    <section id="achievements" class="achievements">
+        <div class="container">
+            <h2 class="text-center">Achievements</h2>
+            <div id="slideshow" class="slideshow-container">
+                <div class="slide fade">
+                    <img src="{{ url_for('static', filename='images/ach-1.jpg') }}" alt="Achievement 1">
+                    <p class="description">Ranked #1 in Academic Excellence</p>
+                </div>
+                <div class="slide fade">
+                    <img src="{{ url_for('static', filename='images/ach-2.jpg') }}" alt="Achievement 1">
+                    <p class="description">Outstanding Sports Achievements</p>
+                </div>
+                <div class="slide fade">
+                    <img src="{{ url_for('static', filename='images/ach-3.jpg') }}" alt="Achievement 1">
+                    <p class="description">Community Service Recognition</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Founder Section -->
+<section id="founder" class="founder">
+    <div class="container">
+        <h2 class="text-center">Founder's Name</h2>
+        <div class="founder-info">
+            <img src="{{ url_for('static', filename='images/Founder-Image.jpg') }}" alt="Founder Image" class="founder-image">
+            <p class="description">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet odio et turpis pellentesque commodo.
+            </p>
+            <p class="vision">
+                Vision: To inspire and empower students to achieve excellence in education and beyond.
+            </p>
+        </div>
+    </div>
+</section>
+
+
+    <!-- About College Section -->
+<section id="about-college" class="about-college">
+    <div class="container">
+        <h2 class="text-center">About College</h2>
+        <p class="description">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet odio et turpis pellentesque commodo.
+        </p>
+        <div class="college-details">
+            <p><strong>Address:</strong> 123 College Street, Cityville, Country</p>
+            <p><strong>Contact:</strong> +1 234 567 890</p>
+            <p><strong>Email:</strong> info@collegeexample.com</p>
+            <p><strong>Office Hours:</strong> Monday to Friday, 9:00 AM - 5:00 PM</p>
+        </div>
+    </div>
+</section>
+
+
+</div>
+
+<script src="{{ url_for('static', filename='clghome.js') }}"></script>
+</body>
+</html>

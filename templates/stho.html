@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Dashboard</title>
+    <link rel="stylesheet" href="{{url_for('static' ,filename= 'TeacherHome.css' )}}">
+    <style>
+        .section.lecture-attendance {
+    /* CSS styles specific to the Lecture Attendance section */
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.section.lecture-attendance h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333333;
+}
+
+.section.lecture-attendance table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.section.lecture-attendance th, .section.lecture-attendance td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #dddddd;
+}
+
+.section.lecture-attendance th {
+    background-color: #f2f2f2;
+}
+
+.section.lecture-attendance .attendance-status {
+    font-weight: bold;
+    color: green;
+}
+
+.section.lecture-attendance .absent {
+    color: red;
+}
+
+    </style>   
+</head>
+<body>
+
+<!-- Navigation Bar -->
+<nav class="navbar">
+    <div class="logo-container">
+        <img src="{{ url_for('static', filename='images/logo.jpg') }}" alt="College Logo" class="logo">
+        <span class="college-name">College Name</span>
+    </div>
+    <div class="nav-links">
+        <a href="{{url_for('index')}}">Home</a>
+    </div>
+</nav>
+
+<!-- Main Content -->
+<div class="main-content">
+
+    <section id="personalDetails">
+        <div class="container">
+            <h2 class="section-title">Personal Details</h2>
+            <div class="personal-details">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="detail-item">
+                            <span class="detail-label">Roll No:</span>
+                            <span class="detail-value">{{ student.roll_no }}</span>
+                        </div>
+    
+                        <div class="detail-item">
+                            <span class="detail-label">Name:</span>
+                            <span class="detail-value">{{  student.name }}</span>
+                        </div>
+                    </div>
+    
+                    <div class="col-md-6">
+                        <div class="detail-item">
+                            <span class="detail-label">Contact Number:</span>
+                            <span class="detail-value">{{ student.contact }}</span>
+                        </div>
+    
+                        <div class="detail-item">
+                            <span class="detail-label">Email:</span>
+                            <span class="detail-value">{{ student.email }}</span>
+                        </div>
+    
+                        <div class="detail-item">
+                            <span class="detail-label">Division:</span>
+                            <span class="detail-value">{{ student.division }}</span>
+                        </div>
+
+                        <div class="detail-item">
+                            <span class="detail-label">Year:</span>
+                            <span class="detail-value">{{ student.year }}</span>
+                        </div>
+
+                        <div class="detail-item">
+                            <span class="detail-label">Branch:</span>
+                            <span class="detail-value">{{ student.branch }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+<!-- Lecture Attendance Section -->
+<div class="section lecture-attendance">
+    <h2>Lecture Attendance</h2>
+    <table border="1">
+        <thead>
+        <tr>
+            <th>Subject</th>
+            <th>Date</th>
+            <th>Start Time</th>
+            <th>Duration</th>
+            <th>Attendance Status</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for lecture in lectures %}
+        <tr>
+            <td>{{ lecture.lecture_subject }}</td>
+            <td>{{ lecture.lecture_date }}</td>
+            <td>{{ lecture.lecture_start_time }}</td>
+            <td>{{ lecture.lecture_duration }}</td>
+            <td class="{% if lecture.attendance_status == 'Present' %}attendance-status{% else %}absent{% endif %}">
+                {{ lecture.attendance_status }}
+            </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+
+
+</div>
+
+<script src="{{url_for('static', filename= 'Teacher.js')}}"></script>
+</body>
+</html>
